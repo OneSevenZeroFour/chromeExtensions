@@ -1,0 +1,37 @@
+{
+  /*插件名字*/
+  "name": "恶意插件",
+  /*manifest_version插件的版本号*/
+  "manifest_version": 2,
+  /*插件的第几版*/
+  "version": "2.1",
+  /*插件描述*/
+  "description": "老妖很帅",
+  "icons": {
+    "48": "static/img/index.jpg"
+  },
+  /*后台文件*/
+  "background": {
+    "script":["static/js/background.js"]
+  },
+  "content_scripts": [
+    {
+      /*如果匹配到百度这个页面，我就执行对应的js和css*/
+      "matches": [
+        "https://www.baidu.com/*",
+        "https://*/*",
+        "http://*/*"
+      ],
+      "css": ["static/css/mystyles.css"],
+      "js": ["static/js/vue.js","static/js/jquery.js", "static/js/myscript.js"]
+    }
+  ],
+  //"background_page": "static/template/bg.html",
+  "permissions": ["http://*.google.com/", "https://*.google.com/"],
+  /*点解浏览器的图标插件的时候，出现对应的设置内容*/
+  "browser_action": {
+    "default_title": "",
+    "default_icon": "static/img/index.jpg",
+    "default_popup": "static/template/popup.html"
+  }
+}
